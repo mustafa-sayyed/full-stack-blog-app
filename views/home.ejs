@@ -8,7 +8,7 @@
   </head>
   <body class="bg-gray-100">
     <%- include("./partials/navbar.ejs") %>
-    <div class="my-8 w-4/5 mx-auto h-full grid grid-cols-3 place-items-center gap-6">
+    <div class="my-8 w-4/5 mx-auto h-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 place-items-center gap-6">
       <% if (locals.blogs) { %> <% blogs.forEach(blog => { %>
       <div
         class="w-80 flex flex-col bg-white border-2 shadow-sm rounded-lg overflow-hidden">
