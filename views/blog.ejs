@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blogger</title>
+    <link rel="stylesheet" href="/styles/style.css" />
+  </head>
+  <body>
+    <%- include("./partials/navbar.ejs") %>
+    <div class="my-7 h-full flex justify-center items-center gap-x-8">
+      <% if (locals.blog) { %>
+      <div class="w-2/4 flex flex-col bg-white shadow-sm rounded-lg overflow-hidden">
+        <h3 class="text-4xl my-10 font-bold text-gray-800 dark:text-white">
+          <%= blog.title %>
+        </h3>
+        <img class="w-full h-96 rounded-sm" src="<%= blog.image %>" alt="Card Image" />
+        <p class="my-10 text-gray-900 text-xl"> <%= blog.content %> </p>
+      </div>
+      <% } %> 
+      
+      <% if (!locals.blog) { %>
+      <p class="text-2xl text-black mt-20">NO Blogs found with this title<br /> </p>
+      <% } %>
+    </div>
+  </body>
+</html>

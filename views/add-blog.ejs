@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add Blogs</title>
+    <link rel="stylesheet" href="/styles/style.css" />
+  </head>
+  <body class="text-center bg-gray-100">
+    <%- include('./partials/navbar.ejs') %>
+    <h1 class="mt-8 text-center text-3xl">Add Blogs</h1>
+
+    <div class="flex justify-center items-center h-full mt-8">
+      <form
+        action="/add-blog"
+        method="post"
+        enctype="multipart/form-data"
+        class="w-[430px] flex flex-col gap-y-4 justify-center items-center">
+        <input
+          type="text"
+          name="title"
+          placeholder="Enter Title"
+          class="py-1.5 px-2 rounded-lg w-full border-black border-2" />
+        <textarea
+          name="content"
+          placeholder="Enter Content"
+          class="py-2 px-2 rounded-lg w-full h-40 border-2 border-black"></textarea>
+
+        <input
+          type="file"
+          name="image"
+          class="block w-full border-2 border-black border-blackshadow-sm rounded-lg text-sm focus:z-10 focus:border-black focus:ring-black file:bg-white file:border-0 file:me-4 file:py-3 file:px-4" />
+
+        <button
+          type="submit"
+          class="py-3 px-8 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 focus:outline-none focus:bg-blue-700">
+          Add Blog
+        </button>
+      </form>
+    </div>
+  </body>
+</html>
