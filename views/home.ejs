@@ -8,20 +8,20 @@
   </head>
   <body class="bg-gray-100">
     <%- include("./partials/navbar.ejs") %>
-    <div class="my-8 w-2/3 mx-auto h-full flex flex-wrap justify-start items-start gap-4">
+    <div class="my-8 w-4/5 mx-auto h-full grid grid-cols-3 place-items-center gap-6">
       <% if (locals.blogs) { %> <% blogs.forEach(blog => { %>
       <div
         class="w-80 flex flex-col bg-white border-2 shadow-sm rounded-lg overflow-hidden">
         <img
-          class="w-full h-auto rounded-t-lg"
+          class="w-full h-48 rounded-t-lg"
           src="<%= blog.image %>"
           alt="Card Image" />
         <div class="p-4 md:p-5">
           <h3 class="text-lg font-bold text-gray-800 dark:text-white">
-            <%= blog.title %>
+            <%= blog.title.slice(0, 28)+"..." %>
           </h3>
           <p class="mt-1 text-gray-500 dark:text-neutral-400">
-            <%= blog.content.slice(0, 20)+"...." %>
+            <%= blog.content.slice(0, 60)+"...." %>
           </p>
           <a
             class="mt-2 py-2 px-3 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 focus:outline-none focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none"
