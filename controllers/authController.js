@@ -3,13 +3,24 @@ import User from "../models/user.js";
 
 const handleUserSignup = async (req, res) => {
   const { fullName, email, password } = req.body;
+  const result = [fullName, email, password].some((val) => val.trim() === "" )
+  if (result) {
+    return res.status(400).render("signup", { error: "All Fields are to required." });
+  }
   const profileImage = req.file.path.slice(7);
-  const result = await User.create({
-    fullName,
-    email,
-    password,
-    profileImage,
-  });
+  try {
+    await User.create({
+      fullName,
+      email,
+      password,
+      profileImage,
+    });
+  } catch (error) {
+    if (error.code === 11000) {
+      return res.status(400).render("signup", { error: `${Object.keys(error.keyValue)} already exist.` });
+    }
+    return res.status(400).render("signup", { error: "Failed to create user" });
+  }
 
   res.status(201).redirect("/signin");
 };

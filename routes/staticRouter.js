@@ -18,7 +18,7 @@ router.get("/", authMiddleware, async (req, res) => {
 });
 
 router.get("/add-blog", authMiddleware, (req, res) => {
-  res.render("add-blog");
+  res.render("add-blog", { user: req.user });
 });
 
 

@@ -69,5 +69,12 @@
         </button>
       </div>
     </form>
+    <div>Already have an Account. <a href="/signin">Signin</a></div>
+
+    <% if (locals.error) { %>
+      <div class="mt-10 text-red-600 text-2xl">
+       <%= error %>
+      </div>
+     <% } %>
   </body>
 </html>

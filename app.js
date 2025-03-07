@@ -8,7 +8,7 @@ import cookieParser from "cookie-parser";
 
 const app = express();
 const PORT = process.env.PORT || 3000;
-connectMongoDB("mongodb://localhost:27017/Blog-App");
+connectMongoDB();
 app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.use(express.static("uploads"));

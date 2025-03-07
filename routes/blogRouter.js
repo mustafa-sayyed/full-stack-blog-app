@@ -20,12 +20,12 @@ router.post("/add-blog", upload.single("image"), handleCreateBlog);
 
 router.get("/blog/:slug", async (req, res) => {
   const blog = await Blog.findOne({ slug: req.params.slug });
-  res.status(200).render("blog", { blog: blog });
+  res.status(200).render("blog", { blog: blog, user: req.user });
 });
 
 router.get("/my-blog", async (req, res) => {
   const blogs = await Blog.find({ createdBy: req.user._id });
-  res.render("my-blogs", { blogs });
+  res.render("my-blogs", { blogs, user: req.user });
 });
 
 export default router;
